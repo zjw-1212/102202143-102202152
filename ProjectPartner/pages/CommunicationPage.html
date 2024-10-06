@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <title>交流协作</title>
+</head>
+<body>
+    <header>
+        <h1>交流协作</h1>
+    </header>
+    <main>
+        <!-- 项目聊天列表 -->
+        <div id="projectChatList">
+            <!-- 项目聊天列表将在这里动态加载 -->
+        </div>
+
+        <!-- 实时聊天框 -->
+        <div id="chatBox">
+            <div id="chatMessages" style="border: 1px solid #ccc; height: 300px; overflow-y: scroll;">
+                <!-- 聊天内容会动态显示在这里 -->
+            </div>
+            <input type="text" id="messageInput" placeholder="输入消息...">
+            <button id="sendMessageButton">发送</button>
+        </div>
+    </main>
+
+    <script src="../assets/js/script.js"></script>
+    <script>
+        const projectId = '当前项目ID'; // 替换为真实项目ID
+
+        // 加入项目聊天
+        joinProjectChat(projectId);
+
+        // 发送消息
+        document.getElementById('sendMessageButton').addEventListener('click', function () {
+            const messageContent = document.getElementById('messageInput').value;
+            sendMessage(projectId, '当前登录用户', messageContent);
+            document.getElementById('messageInput').value = ''; // 清空输入框
+        });
+
+        // 动态显示消息
+        socket.on('message', function (message) {
+            const chatMessages = document.getElementById('chatMessages');
+            const newMessage = document.createElement('p');
+            newMessage.textContent = `${message.sender}: ${message.content}`;
+            chatMessages.appendChild(newMessage);
+            chatMessages.scrollTop = chatMessages.scrollHeight; // 自动滚动到最新消息
+        });
+    </script>
+</body>
+</html>
