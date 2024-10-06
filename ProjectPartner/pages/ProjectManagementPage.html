@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <title>项目管理</title>
+</head>
+<body>
+    <header>
+        <h1>项目管理</h1>
+    </header>
+    <main>
+        <!-- 发布项目按钮 -->
+        <button id="publishProjectButton">发布项目</button>
+
+        <!-- 发布项目表单 -->
+        <form id="projectForm" style="display:none;">
+            <label for="title">项目标题:</label>
+            <input type="text" id="title" required><br>
+            
+            <label for="description">项目描述:</label>
+            <textarea id="description" required></textarea><br>
+            
+            <label for="requirements">项目要求:</label>
+            <textarea id="requirements" required></textarea><br>
+            
+            <label for="schedule">项目时间安排:</label>
+            <input type="text" id="schedule" required><br>
+            
+            <label for="maxMembers">最大成员数:</label>
+            <input type="number" id="maxMembers" required><br>
+            
+            <input type="hidden" id="creator" value="当前登录用户"><br>
+            
+            <button type="submit">提交项目</button>
+        </form>
+
+        <!-- 用户发布的项目列表 -->
+        <div id="myPublishedProjects">
+            <!-- 项目将动态加载 -->
+        </div>
+    </main>
+
+    <script src="../assets/js/script.js"></script>
+    <script>
+        // 显示发布项目表单
+        document.getElementById('publishProjectButton').addEventListener('click', function () {
+            const form = document.getElementById('projectForm');
+            form.style.display = form.style.display === 'none' ? 'block' : 'none';
+        });
+    </script>
+</body>
+</html>
