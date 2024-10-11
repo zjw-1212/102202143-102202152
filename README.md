@@ -62,7 +62,7 @@ MonggoDB是项目所需要的数据库
 ##### 1.系统提示找不到safer-buffer中的safer.js文件，可能是兼容问题也有可能是安装时候导致包破损了。解决方案：重新安装相关模块，先尝试用npm官方源发现安装成功，但是还是找不到safer-buffer中的safer.js文件。于是我就先进入了后端的目录，然后删除了node_modules文件夹；接着清除了npm缓存，使用npm cache clead --force命令；最后重新安装项目依赖，运行npm install命令。解决！
 ###在启动前端的时候遇到了下面的错误：
 ##### 1.提示系统找不到指定的路径
-首先先删除了node_modules文件夹和package_lockjson文件夹，然后在根目录下执行npm install。首先我使用的是[淘宝镜像源](npm config set registry https://registry.npm.taobao.org/)，发现一直install不了，然后我们就去切换到了[官方npm源](npm config set registry https://registry.npmjs.org/)，然后再运行npm install后就成功了
+首先先删除了node_modules文件夹和package_lockjson文件夹，然后在根目录下执行npm install。首先我使用的是[淘宝镜像源]( npm config set registry https://registry.npm.taobao.org/ )， 发现一直install不了，然后我们就去切换到了[官方npm源]( npm config set registry https://registry.npmjs.org/ )， 然后再运行npm install后就成功了
 # 现在我们已经完成了项目的启动，可以开始测试和使用平台啦！！！
 ## 遇到问题时的调试方法
 #### 如果项目在运行过程中遇到问题，可以按照以下步骤进行调试
